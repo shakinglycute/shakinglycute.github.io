@@ -1,137 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kara</title>
-  <meta name="theme-color" content="#050505">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
-  <link rel="stylesheet" href="site.css?v=15">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+}
+</style>
 </head>
-<body class="kara-body">
-  <div class="kara-background" aria-hidden="true"></div>
 
-  <main class="kara-main" aria-label="Kara page">
-    <div class="kara-shell">
-      <div class="kara-window">
-        <div class="kara-window-title">
-          <span class="kara-pill">Kara</span>
-          <span class="kara-muted">ageplaying.com</span>
-        </div>
-        <div class="kara-output" id="kara-output" aria-live="polite"></div>
-        <div class="kara-cursor" id="kara-cursor">█</div>
-      </div>
-    </div>
-
-    <div class="kara-enter" id="kara-enter">
-      <div class="kara-enter-inner">
-        <h1 class="kara-enter-title">Kara's dox</h1>
-        <button class="kara-btn" type="button" id="kara-enter-btn">
-          Enter
-        </button>
-      </div>
-    </div>
-  </main>
-
-  <audio id="kara-audio" preload="auto" loop>
-    <source src="Met Her on the Internet.mp3" type="audio/mpeg">
-  </audio>
-
-  <script>
-    (function () {
-      const body = document.body;
-      const enterLayer = document.getElementById("kara-enter");
-      const btn = document.getElementById("kara-enter-btn");
-      const audio = document.getElementById("kara-audio");
-      const output = document.getElementById("kara-output");
-      const cursor = document.getElementById("kara-cursor");
-
-      if (!btn || !enterLayer || !output) return;
-
-      if (audio) {
-        audio.loop = true;
-        audio.addEventListener("ended", () => {
-          try {
-            audio.currentTime = 0;
-            audio.play();
-          } catch {
-            // ignore
-          }
-        });
-      }
-
-      const lines = [
-        "addy tugboat",
-
-        "1",
-        "1",
-        "1",
-        "1",
-        "1",
-        "1",
-        "1",
-        "1"
-      ];
-
-      const fullText = lines.join("\n");
-      let index = 0;
-      let deleting = false;
-      let typing = false;
-
-      const loopType = () => {
-        typing = true;
-
-        if (!deleting) {
-          index++;
-          output.textContent = fullText.slice(0, index);
-
-          if (index >= fullText.length) {
-            deleting = true;
-            setTimeout(loopType, 1600);
-          } else {
-            const speed = 22 + Math.random() * 45;
-            setTimeout(loopType, speed);
-          }
-        } else {
-          index--;
-          output.textContent = fullText.slice(0, Math.max(0, index));
-
-          if (index <= 0) {
-            deleting = false;
-            setTimeout(loopType, 500);
-          } else {
-            const speed = 18 + Math.random() * 35;
-            setTimeout(loopType, speed);
-          }
-        }
-      };
-
-      const enter = () => {
-        if (body.classList.contains("kara-entered")) return;
-        body.classList.add("kara-entered");
-        enterLayer.classList.add("kara-enter--hidden");
-
-        if (audio) {
-          const play = audio.play();
-          if (play && typeof play.catch === "function") {
-            play.catch(() => {
-              // Ignore autoplay errors; user can click again to start audio
-            });
-          }
-        }
-
-        if (!typing) {
-          output.textContent = "";
-          index = 0;
-          deleting = false;
-          loopType();
-        }
-      };
-
-      btn.addEventListener("click", enter);
-    })();
-  </script>
+<body>
+    <img src="kara.jpg" alt="">
+</body>
 </html>
