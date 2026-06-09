@@ -1,23 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Elijah Paz</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            text-align: center;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        h1 {
-            font-size: 3rem;
-        }
-    </style>
+<title>Elijah Paz</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+        radial-gradient(circle at top, #222 0%, #111 40%, #000 100%);
+    color: white;
+    font-family: system-ui, sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-size: clamp(3rem, 10vw, 7rem);
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    opacity: 0.7;
+    margin-bottom: 50px;
+    font-size: 1.1rem;
+}
+
+.button {
+    display: inline-block;
+    padding: 18px 40px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: white;
+    border: 2px solid white;
+    border-radius: 999px;
+    transition: all 0.25s ease;
+}
+
+.button:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 0 30px rgba(255,255,255,.4);
+    background: white;
+    color: black;
+}
+</style>
 </head>
+
 <body>
-    <h1>Elijah Paz</h1>
-    <p>Welcome to my website.</p>
+
+<div class="container">
+    <h1>ELIJAH PAZ</h1>
+    <p class="subtitle">welcome to my corner of the internet</p>
+
+    <a class="button" href="/kara/">
+        Enter Kara →
+    </a>
+</div>
+
 </body>
 </html>
